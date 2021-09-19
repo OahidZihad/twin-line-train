@@ -1,10 +1,10 @@
 .header-container {
   height: 800px;
   position: relative;
-  /* background-image: url("../../../images/train-bg.jpg"); */
+  background-image: url("../../../images/bg-3.png");
   background-size: cover;
 }
-.header-container::after {
+/* .header-container::after {
   height: 700px;
   content: " ";
   position: absolute;
@@ -13,7 +13,7 @@
   right: 0;
   background-color: #a8b3ce;
   z-index: -50;
-}
+} */
 .custom-shape-divider-top-1630174534 {
   position: absolute;
   top: -90px;

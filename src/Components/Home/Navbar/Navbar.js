@@ -26,9 +26,9 @@ const Navbar = () => {
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <div class="d-flex">
-            <h3 class="nav-link ms-5 active text-brand" aria-current="page">
+            <h2 class="ms-5 active text-brand" aria-current="page">
               Twin Line
-            </h3>
+            </h2>
           </div>
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
@@ -36,14 +36,18 @@ const Navbar = () => {
                 class="nav-link ms-5 active"
                 aria-current="page"
                 onClick={handleHome}
-                style={{ cursor: "pointer" }}
+                style={{ cursor: "pointer", fontWeight: "bold" }}
               >
                 Home
               </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link ms-5" href="#services">
+              <a
+                class="nav-link ms-5"
+                href="#services"
+                style={{ fontWeight: "bold" }}
+              >
                 Login
               </a>
             </li>
@@ -51,23 +55,35 @@ const Navbar = () => {
               <a
                 class="nav-link ms-5"
                 onClick={handleDashboard}
-                style={{ cursor: "pointer" }}
+                style={{ cursor: "pointer", fontWeight: "bold" }}
               >
                 Dashboard
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link ms-5" href="#reviews">
+              <a
+                class="nav-link ms-5"
+                href="#reviews"
+                style={{ fontWeight: "bold" }}
+              >
                 Reviews
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link ms-5" href="#blog">
+              <a
+                class="nav-link ms-5"
+                href="#blog"
+                style={{ fontWeight: "bold" }}
+              >
                 Blog
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link ms-5" href="#contactUs">
+              <a
+                class="nav-link ms-5"
+                href="#contactUs"
+                style={{ fontWeight: "bold" }}
+              >
                 Contact Us
               </a>
             </li>
