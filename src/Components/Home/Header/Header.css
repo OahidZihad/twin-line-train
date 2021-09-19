@@ -1,0 +1,37 @@
+.header-container {
+  height: 800px;
+  position: relative;
+  /* background-image: url("../../../images/train-bg.jpg"); */
+  background-size: cover;
+}
+.header-container::after {
+  height: 700px;
+  content: " ";
+  position: absolute;
+  top: 0;
+  width: 25%;
+  right: 0;
+  background-color: #a8b3ce;
+  z-index: -50;
+}
+.custom-shape-divider-top-1630174534 {
+  position: absolute;
+  top: -90px;
+  left: 0;
+  width: 30%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1630174534 svg {
+  z-index: -1;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 299px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1630174534 .shape-fill {
+  fill: #a8b3ce;
+}
