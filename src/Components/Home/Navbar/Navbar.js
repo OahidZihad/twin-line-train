@@ -1,6 +1,4 @@
-import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { UserContext } from "../../../App";
 
 const Navbar = () => {
   const history = useHistory();
@@ -36,6 +34,7 @@ const Navbar = () => {
                 class="nav-link ms-5 active"
                 aria-current="page"
                 onClick={handleHome}
+                href="#home"
                 style={{ cursor: "pointer", fontWeight: "bold" }}
               >
                 Home
@@ -54,6 +53,7 @@ const Navbar = () => {
             <li class="nav-item">
               <a
                 class="nav-link ms-5"
+                href="#Dashboard"
                 onClick={handleDashboard}
                 style={{ cursor: "pointer", fontWeight: "bold" }}
               >
