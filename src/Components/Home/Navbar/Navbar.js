@@ -3,10 +3,13 @@ import { useHistory } from "react-router-dom";
 const Navbar = () => {
   const history = useHistory();
   const handleHome = () => {
-    // history.push("/home");
+    history.push("/home");
   };
   const handleDashboard = () => {
     // history.push("");
+  };
+  const handleLogin = () => {
+    history.push("/login");
   };
   return (
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -44,7 +47,8 @@ const Navbar = () => {
             <li class="nav-item">
               <a
                 class="nav-link ms-5"
-                href="#services"
+                href="#login"
+                onClick={handleLogin}
                 style={{ fontWeight: "bold" }}
               >
                 Login
