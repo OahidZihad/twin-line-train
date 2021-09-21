@@ -15,7 +15,9 @@ const HeaderMain = () => {
     >
       <div className="col-md-4 offset-md-1">
         <h1 style={{ color: "#3a4256", fontWeight: "bold" }}>
-          Your New Journey <br /> Starts Here
+          Your Journey Starts
+          <br />
+          Here
         </h1>
         <p className="">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae
