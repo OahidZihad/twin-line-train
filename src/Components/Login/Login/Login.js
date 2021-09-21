@@ -1,15 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
+import loginBg from "../../../images/loginBG.png";
 import { useForm } from "react-hook-form";
-// import firebase from "firebase/app";
-// import firebaseConfig from "./firebase.config";
-import { UserContext } from "../../App";
+import firebase from "firebase";
+import firebaseConfig from "./firebase.config";
+import { UserContext } from "../../../App";
 import { useHistory, useLocation } from "react-router-dom";
-import loginBG from "../../images/loginBG.png";
-// require("firebase/auth");
+import "firebase/auth";
+require("firebase/auth");
 
-// if (!firebase.apps.length) {
-//   firebase.initializeApp(firebaseConfig);
-// }
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 const Login = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -18,10 +19,16 @@ const Login = () => {
     window.sessionStorage.setItem("loggedInUser", loggedInUser.email);
   });
 
+  // useEffect(() => {
+  //   const loggedInUserData = window.sessionStorage.getItem("loggedInUser");
+  //   console.log("loggedInUserData", loggedInUserData);
+  //   setLoggedInUser(loggedInUserData);
+  // });
+
   console.log("current loggedInUser", loggedInUser);
-  //   const history = useHistory();
-  //   const location = useLocation();
-  //   const { from } = location.state || { from: { pathname: "/" } };
+  const history = useHistory();
+  const location = useLocation();
+  const { from } = location.state || { from: { pathname: "/" } };
 
   const [newUser, setNewUser] = useState(false);
   const [user, setUser] = useState({
@@ -32,27 +39,27 @@ const Login = () => {
     photo: "",
   });
 
-  //   const handleSignOut = () => {
-  //     firebase
-  //       .auth()
-  //       .signOut()
-  //       .then((res) => {
-  //         // Sign-out successful.
-  //         const signedOutUser = {
-  //           isSignedIn: false,
-  //           name: "",
-  //           photo: "",
-  //           email: "",
-  //           error: "",
-  //           success: false,
-  //         };
-  //         setUser(signedOutUser);
-  //       })
-  //       .catch((err) => {
-  //         // An error happened.
-  //         console.log(err.message);
-  //       });
-  //   };
+  const handleSignOut = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then((res) => {
+        // Sign-out successful.
+        const signedOutUser = {
+          isSignedIn: false,
+          name: "",
+          photo: "",
+          email: "",
+          error: "",
+          success: false,
+        };
+        setUser(signedOutUser);
+      })
+      .catch((err) => {
+        // An error happened.
+        console.log(err.message);
+      });
+  };
 
   const {
     register,
@@ -60,7 +67,82 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = () => {};
+  const onSubmit = (user, event) => {
+    if (newUser && user.email && user.password) {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(user.email, user.password)
+        .then((res) => {
+          console.log("res", res);
+          const newUserInfo = { ...user };
+          newUserInfo.error = "";
+          newUserInfo.success = true;
+          setUser(newUserInfo);
+          updateUserName(user.name);
+        })
+        .catch((error) => {
+          const newUserInfo = { ...user };
+          newUserInfo.error = error.message;
+          newUserInfo.success = false;
+          setUser(newUserInfo);
+        });
+    }
+
+    if (!newUser && user.email && user.password) {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(user.email, user.password)
+        .then((res) => {
+          const newUserInfo = { ...user };
+
+          newUserInfo.isSignedIn = true;
+          newUserInfo.name = res.user.displayName;
+
+          newUserInfo.error = "";
+          newUserInfo.success = true;
+          setUser(newUserInfo);
+          setLoggedInUser(newUserInfo);
+          history.replace(from);
+          setUserToken();
+          console.log("sign in user info", res.user);
+        })
+        .catch((error) => {
+          const newUserInfo = { ...user };
+          newUserInfo.error = error.message;
+          newUserInfo.success = false;
+          setUser(newUserInfo);
+        });
+    }
+    event.preventDefault(); // submit korar por page reload hoy...
+    // sei reload k bondho kortei preventDefault() function use kora hoy
+  };
+
+  const setUserToken = () => {
+    firebase
+      .auth()
+      .currentUser.getIdToken(/* forceRefresh */ true)
+      .then(function (idToken) {
+        sessionStorage.setItem("token", idToken);
+      })
+      .catch(function (error) {
+        // Handle error
+      });
+  };
+
+  const updateUserName = (name) => {
+    const user = firebase.auth().currentUser;
+    user
+      .updateProfile({
+        displayName: name,
+      })
+      .then(() => {
+        console.log("successfull");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <section className="d-flex justify-content-center">
       <div className="row m-0 px-5 my-3">
@@ -118,7 +200,7 @@ const Login = () => {
                   <button
                     type="submit"
                     className="btn btn-brand text-white"
-                    onClick="handleSignIn"
+                    // onClick="handleSignIn"
                   >
                     {newUser ? "Sign Up" : "Sign In"}
                   </button>
@@ -144,7 +226,7 @@ const Login = () => {
           </div>
         </div>
         <div className="col-md-6">
-          <img className="img-fluid" src={loginBG} alt="" />
+          <img className="img-fluid" src={loginBg} alt="" />
         </div>
       </div>
     </section>
