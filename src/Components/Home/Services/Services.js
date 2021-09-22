@@ -3,6 +3,7 @@ import ServiceDetail from "../ServiceDetail/ServiceDetail";
 import food from "../../../images/food.png";
 import rfid from "../../../images/rfid.png";
 import treatment from "../../../images/treatment.png";
+import "./Services.css";
 
 const serviceData = [
   {
@@ -32,7 +33,7 @@ const Services = () => {
         <h2 className="text-brand">Services We Provide</h2>
       </div>
       <div className="d-flex justify-content-center">
-        <div className="w-75 row mt-5 pt-5 text-brand">
+        <div className="w-75 row mt-2 pt-5 text-brand">
           {serviceData.map((service) => (
             <ServiceDetail key={service.name} service={service}></ServiceDetail>
           ))}

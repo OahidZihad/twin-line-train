@@ -1,0 +1,8 @@
+.services-container {
+  padding-bottom: 50px;
+  background-image: url("../../../images/exp-bg.png");
+  background-repeat: no-repeat;
+  background-position: left;
+  /* background-position-y: 290px; */
+  background-size: 80px;
+}
