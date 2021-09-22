@@ -12,10 +12,15 @@ const Navbar = () => {
     history.push("/login");
   };
   return (
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
       <div class="container-fluid">
         <div class="d-flex">
-          <h2 class="ms-5 active text-brand" aria-current="page">
+          <h2
+            class="ms-5 active text-brand"
+            aria-current="page"
+            onClick={handleHome}
+            style={{ cursor: "pointer" }}
+          >
             Twin Line
           </h2>
         </div>

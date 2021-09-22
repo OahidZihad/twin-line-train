@@ -5,8 +5,8 @@ import { useHistory } from "react-router-dom";
 const HeaderMain = () => {
   const history = useHistory();
 
-  function handleAppointment() {
-    // history.push("");
+  function handleTicket() {
+    history.push("tickets");
   }
   return (
     <main
@@ -28,7 +28,7 @@ const HeaderMain = () => {
         <button
           className="btn btn-brand text-white"
           style={{ fontWeight: 600 }}
-          onClick={handleAppointment}
+          onClick={handleTicket}
         >
           GET TICKET
         </button>
