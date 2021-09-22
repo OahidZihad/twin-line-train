@@ -12,14 +12,14 @@ const Navbar = () => {
     history.push("/login");
   };
   return (
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
         <div class="d-flex">
           <h2
             class="ms-5 active text-brand"
             aria-current="page"
             onClick={handleHome}
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", fontWeight: "bold" }}
           >
             Twin Line
           </h2>
@@ -43,7 +43,11 @@ const Navbar = () => {
                 aria-current="page"
                 onClick={handleHome}
                 href="#home"
-                style={{ cursor: "pointer", fontWeight: "bold" }}
+                style={{
+                  cursor: "pointer",
+                  fontWeight: "bold",
+                  color: "#800000",
+                }}
               >
                 Home
               </a>
@@ -53,7 +57,11 @@ const Navbar = () => {
                 class="nav-link ms-5"
                 href="#login"
                 onClick={handleLogin}
-                style={{ fontWeight: "bold" }}
+                style={{
+                  cursor: "pointer",
+                  fontWeight: "bold",
+                  color: "#800000",
+                }}
               >
                 Login
               </a>
@@ -63,7 +71,11 @@ const Navbar = () => {
                 class="nav-link ms-5"
                 href="#Dashboard"
                 onClick={handleDashboard}
-                style={{ cursor: "pointer", fontWeight: "bold" }}
+                style={{
+                  cursor: "pointer",
+                  fontWeight: "bold",
+                  color: "#800000",
+                }}
               >
                 Dashboard
               </a>
@@ -72,7 +84,7 @@ const Navbar = () => {
               <a
                 class="nav-link ms-5"
                 href="#reviews"
-                style={{ fontWeight: "bold" }}
+                style={{ fontWeight: "bold", color: "#800000" }}
               >
                 Reviews
               </a>
@@ -81,7 +93,7 @@ const Navbar = () => {
               <a
                 class="nav-link ms-5"
                 href="#blog"
-                style={{ fontWeight: "bold" }}
+                style={{ fontWeight: "bold", color: "#800000" }}
               >
                 Blog
               </a>
@@ -90,7 +102,7 @@ const Navbar = () => {
               <a
                 class="nav-link ms-5"
                 href="#contactUs"
-                style={{ fontWeight: "bold" }}
+                style={{ fontWeight: "bold", color: "#800000" }}
               >
                 Contact Us
               </a>

@@ -1,0 +1,9 @@
+.footer-section {
+  background-image: url("../../../images/footer-bg.png");
+  background-repeat: no-repeat;
+  position: relative;
+  background-size: cover;
+}
+.call-now {
+  margin: 5px;
+}

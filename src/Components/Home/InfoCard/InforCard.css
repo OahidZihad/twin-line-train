@@ -2,10 +2,11 @@
   padding: 0 5px;
 }
 .info-primary {
-  background-color: #1cc7c1;
+  background-color: #800000;
 }
 .info-dark {
-  background-color: #3a4256;
+  background-color: #330000;
+  opacity: 0.8;
 }
 .info-container {
   height: 100px;

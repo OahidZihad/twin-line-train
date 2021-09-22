@@ -1,10 +1,11 @@
 .btn-brand {
-  background-image: linear-gradient(75deg, #17bd9c, #0fcfec);
+  background-image: linear-gradient(75deg, #330000d2, #800000);
   border-color: transparent;
   text-transform: uppercase;
   font-weight: 600;
 }
 
 .text-brand {
-  color: #1cc7c1;
+  color: #800000;
+  opacity: 0.9;
 }
