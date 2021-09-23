@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useScript, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Modal from "react-modal";
 import "./TicketForm.css";
+import { Helmet } from "react-helmet";
 
 const customStyles = {
   content: {
@@ -18,6 +19,8 @@ const customStyles = {
 Modal.setAppElement("#root");
 
 const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
+  //   useScript("./TicketFormJavascript.js");
+
   const {
     register,
     handleSubmit,
@@ -27,6 +30,81 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
   const onSubmit = (data) => {
     console.log(data);
   };
+
+  //   const [ticketPrice, setTicketPrice] = useState(0);
+  //   const handleClass = () => {
+  //     setTicketPrice(document.getElementById("movie").value);
+  //   };
+  //   console.log(ticketPrice);
+
+  //   const handleTicketProperty = (event) => {
+  //     ticketPrice = event.target.value;
+  //     console.log(ticketPrice);
+  //     setTicketData(event.target.selectedIndex, event.target.value);
+  //     updateSelectedCount();
+  //   };
+
+  //   const setTicketData = (ticketIndex, selectedTicketPrice) => {
+  //     window.localStorage.setItem("selectedTicketIndex", ticketIndex);
+  //     window.localStorage.setItem("selectedTicketPrice", selectedTicketPrice);
+  //   };
+
+  //   const [selectedSeats, setSelectedSeats] = useState([]);
+  //   const [seats, setSeats] = useState();
+  //   const [count, setCount] = useState(0);
+  //   const [total, setTotal] = useState(0);
+
+  //   const updateSelectedCount = () => {
+  //     setSelectedSeats(document.querySelectorAll(".row1 .seat .selected"));
+  //     setSeats(document.querySelectorAll("row1 .seat:not(.occupied"));
+  //     const seatsIndex = [...selectedSeats].map((seat) =>
+  //       [...seats].indexOf(seat)
+  //     );
+  //     localStorage.setItem("selectedSeats", JSON.stringify(seatsIndex));
+
+  //     const selectedSeatsCount = selectedSeats.length;
+
+  //     setCount(document.getElementById("count").innerText);
+  //     setTotal(document.getElementById("total").innerText);
+
+  //     const count1 = selectedSeatsCount;
+  //     setCount(count1);
+  //     const total1 = selectedSeats.length * ticketPrice;
+  //     setTotal(total1);
+
+  //     console.log(count, total);
+  //   };
+
+  //   const [selectedSeatsLS, setSelectedSeatsLS] = useState();
+  //   const [ticketSelect, setTicketSelect] = useState();
+
+  //   const populateUI = () => {
+  //     setSelectedSeatsLS(JSON.parse(localStorage.getItem("selectedSeats")));
+  //     if (selectedSeatsLS !== null && selectedSeatsLS.length > 0) {
+  //       seats.forEach((seat, index) => {
+  //         if (selectedSeatsLS.indexOf(index) > -1) {
+  //           seat.classList.add("selected");
+  //         }
+  //       });
+  //     }
+  //     const selectedTicketIndex = localStorage.getItem("selectedTicketIndex");
+
+  //     if (selectedTicketIndex !== null) {
+  //       setTicketSelect(document.getElementById("movie"));
+  //       ticketSelect.selectedIndex = selectedTicketIndex;
+  //     }
+  //   };
+
+  //   const handleSeat = (event) => {
+  //     if (
+  //       event.target.classList.contains("seat") &&
+  //       !event.target.classList.contains("occupied")
+  //     ) {
+  //       event.target.classList.toggle("selected");
+  //       updateSelectedCount();
+  //     }
+  //   };
+
   return (
     <div>
       <Modal
@@ -132,10 +210,12 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
             <div className="col-md-6">
               <select
                 id="movie"
+                // onClick={handleClass}
+                // onChange={handleTicketProperty}
                 className="form-control form-select mb-3"
                 {...register("class", { required: true })}
               >
-                <option selected disabled={true} value="Not set">
+                <option selected disabled={true} value="0">
                   Select Class
                 </option>
                 <option value="8">S-Chair (8 Taka)</option>
@@ -155,7 +235,10 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
                   </li>
 
                   <li>
-                    <div class="seat selected"></div>
+                    <div
+                      //   onClick={updateSelectedCount}
+                      class="seat selected"
+                    ></div>
                     <small>Selected</small>
                   </li>
 
@@ -166,43 +249,46 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
                 </ul>
               </div>
 
-              <div class="container">
-                <div class="row d-flex justify-content-center">
+              <div
+                //   onClick={handleSeat}
+                class="container"
+              >
+                <div class="row1 d-flex justify-content-center">
                   <div class="seat"></div>
                   <div class="seat occupied"></div>
                   <div class="seat"></div>
                   <div class="seat"></div>
                 </div>
 
-                <div class="row d-flex justify-content-center">
+                <div class="row1 d-flex justify-content-center">
                   <div class="seat"></div>
                   <div class="seat"></div>
                   <div class="seat"></div>
                   <div class="seat"></div>
                 </div>
 
-                <div class="row d-flex justify-content-center">
+                <div class="row1 d-flex justify-content-center">
                   <div class="seat"></div>
                   <div class="seat"></div>
                   <div class="seat"></div>
                   <div class="seat occupied"></div>
                 </div>
 
-                <div class="row d-flex justify-content-center">
+                <div class="row1 d-flex justify-content-center">
                   <div class="seat"></div>
                   <div class="seat"></div>
                   <div class="seat"></div>
                   <div class="seat"></div>
                 </div>
 
-                <div class="row d-flex justify-content-center">
+                <div class="row1 d-flex justify-content-center">
                   <div class="seat occupied"></div>
                   <div class="seat"></div>
                   <div class="seat"></div>
                   <div class="seat"></div>
                 </div>
 
-                <div class="row d-flex justify-content-center">
+                <div class="row1 d-flex justify-content-center">
                   <div class="seat"></div>
                   <div class="seat"></div>
                   <div class="seat occupied"></div>
@@ -227,6 +313,9 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
           </div>
         </form>
       </Modal>
+      {/* <Helmet>
+        <script src="./useScript.js"></script>
+      </Helmet> */}
     </div>
   );
 };
