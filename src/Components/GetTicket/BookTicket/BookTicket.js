@@ -49,7 +49,7 @@ const bookingData = [
 const BookTicket = ({ date }) => {
   return (
     <section>
-      <h2 className="text-center" style={{ color: "#1cc7c1" }}>
+      <h2 className="text-center text-brand">
         Available Appointments on {date.toDateString()}
       </h2>
       <div className="d-flex justify-content-center">
