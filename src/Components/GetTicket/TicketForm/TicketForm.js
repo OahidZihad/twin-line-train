@@ -78,41 +78,51 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
                 )}
               </div>
               <div className="form-group row mb-3">
-                <div className="col-4">
+                <div className="col-6">
                   <select
                     className="form-control form-select"
-                    {...register("gender", { required: true })}
+                    {...register("from", { required: true })}
                   >
                     <option selected disabled={true} value="Not set">
-                      Select Gender
+                      From
                     </option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Not set">Other</option>
+                    <option value="Airport">Airport</option>
+                    <option value="Khilkhet">Khilkhet</option>
+                    <option value="Purbachal">Purbachal</option>
+                    <option value="Bashundhara">Bashundhara</option>
+                    <option value="Jamuna Future Park">
+                      Jamuna Future Park
+                    </option>
+                    <option value="Baridhara">Baridhara</option>
+                    <option value="Gulshan-2">Gulshan-2</option>
+                    <option value="Banani">Banani</option>
+                    <option value="Mirpur 14">Mirpur 14</option>
                   </select>
-                  {errors.gender && (
+                  {errors.from && (
                     <span className="text-white">This field is required</span>
                   )}
                 </div>
-                <div className="col-4">
-                  <input
-                    {...register("age", { required: true })}
-                    className="form-control"
-                    placeholder="Your Age"
-                    type="number"
-                  />
-                  {errors.age && (
-                    <span className="text-white">This field is required</span>
-                  )}
-                </div>
-                <div className="col-4">
-                  <input
-                    {...register("weight", { required: true })}
-                    className="form-control"
-                    placeholder="Weight"
-                    type="number"
-                  />
-                  {errors.weight && (
+                <div className="col-6">
+                  <select
+                    className="form-control form-select"
+                    {...register("to", { required: true })}
+                  >
+                    <option selected disabled={true} value="Not set">
+                      To
+                    </option>
+                    <option value="Airport">Airport</option>
+                    <option value="Khilkhet">Khilkhet</option>
+                    <option value="Purbachal">Purbachal</option>
+                    <option value="Bashundhara">Bashundhara</option>
+                    <option value="Jamuna Future Park">
+                      Jamuna Future Park
+                    </option>
+                    <option value="Baridhara">Baridhara</option>
+                    <option value="Gulshan-2">Gulshan-2</option>
+                    <option value="Banani">Banani</option>
+                    <option value="Mirpur 14">Mirpur 14</option>
+                  </select>
+                  {errors.to && (
                     <span className="text-white">This field is required</span>
                   )}
                 </div>
@@ -120,7 +130,6 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
             </div>
 
             <div className="col-md-6">
-              {/* <div class="movie-container"> */}
               <select
                 id="movie"
                 className="form-control form-select mb-3"
@@ -137,7 +146,6 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
               {errors.class && (
                 <span className="text-white">This field is required</span>
               )}
-              {/* </div> */}
 
               <div className="d-flex justify-content-center">
                 <ul class="showcase">
