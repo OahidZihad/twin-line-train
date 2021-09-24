@@ -1,8 +1,7 @@
-import React, { useState, useScript, useEffect } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Modal from "react-modal";
 import "./TicketForm.css";
-import { Helmet } from "react-helmet";
 
 const customStyles = {
   content: {
@@ -19,8 +18,6 @@ const customStyles = {
 Modal.setAppElement("#root");
 
 const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
-  //   useScript("./TicketFormJavascript.js");
-
   const {
     register,
     handleSubmit,
@@ -32,8 +29,22 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
   };
 
   const [ticketPrice, setTicketPrice] = useState(0);
-  const handleClass = () => {
+
+  const ticketData = (classIndex, ticketPrice) => {
+    localStorage.setItem("selectedClassIndex", classIndex);
+    localStorage.setItem("selectedTicketPrice", ticketPrice);
+  };
+
+  const handleClass = (e) => {
     setTicketPrice(document.getElementById("movie").value);
+
+    console.log("ticketPrice", ticketPrice);
+    console.log("selected ticket Price", e.target.value);
+    console.log("ticket class Index", e.target.selectedIndex);
+
+    ticketData(e.target.selectedIndex, e.target.value);
+
+    updateSelectedCount();
   };
   console.log(ticketPrice);
 
@@ -50,7 +61,7 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
   //   };
 
   const [selectedSeats, setSelectedSeats] = useState([]);
-  const [seats, setSeats] = useState();
+  const [seats, setSeats] = useState([]);
   const [count, setCount] = useState(0);
   const [total, setTotal] = useState(0);
 
@@ -58,29 +69,35 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
     setSelectedSeats(document.querySelectorAll(".row1 .seat.selected"));
     console.log(selectedSeats); //selectedSeats er Length er sathe 1 jog korte hobe.... {problem}
 
-    // setSeats(document.querySelectorAll("row1 .seat:not(.occupied"));
-    // const seatsIndex = [...selectedSeats].map((seat) =>
-    //   [...seats].indexOf(seat)
-    // );
-    // localStorage.setItem("selectedSeats", JSON.stringify(seatsIndex));
+    setSeats(document.querySelectorAll(".row1 .seat:not(.occupied"));
+    console.log("seats", seats);
+    const seatsIndex = [...selectedSeats].map(
+      (seat) => [...seats].indexOf(seat)
+      // seat
+    );
+
+    console.log("seatsIndex", seatsIndex);
+    localStorage.setItem("selectedSeats", JSON.stringify(seatsIndex));
 
     const selectedSeatsCount = selectedSeats.length + 1;
     console.log("seat length", selectedSeatsCount);
 
     setCount(document.getElementById("count").innerText);
     setCount(selectedSeatsCount);
-    console.log("count", count);
 
     setTotal(document.getElementById("total").innerText);
     setTotal(selectedSeatsCount * ticketPrice);
-    console.log("Total", total);
+  };
+  console.log("Total", total);
+  console.log("count", count);
 
-    // const count1 = selectedSeatsCount;
-    // setCount(count1);
-    // const total1 = selectedSeats.length * ticketPrice;
-    // setTotal(total1);
-
-    // console.log(count, total);
+  //// not working :-(
+  const classSelect = (e) => {
+    // setTicketPrice(e.target.value);
+    setTicketPrice(document.getElementById("movie").value);
+    console.log("ticketPrice", ticketPrice);
+    console.log("selected Index", e.target.selectedtedIndex);
+    updateSelectedCount();
   };
 
   //   const [selectedSeatsLS, setSelectedSeatsLS] = useState();
@@ -220,13 +237,13 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
               <select
                 id="movie"
                 onClick={handleClass}
-                // onChange={handleTicketProperty}
+                // onChange={classSelect} //not working
                 className="form-control form-select mb-3"
                 {...register("class", { required: true })}
               >
-                <option selected disabled={true} value="0">
+                {/* <option selected disabled={true} value="0">
                   Select Class
-                </option>
+                </option> */}
                 <option value="8">S-Chair (8 Taka)</option>
                 <option value="10">Economy (10 Taka)</option>
                 <option value="12">Business (12 Taka)</option>
