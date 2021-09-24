@@ -31,11 +31,11 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
     console.log(data);
   };
 
-  //   const [ticketPrice, setTicketPrice] = useState(0);
-  //   const handleClass = () => {
-  //     setTicketPrice(document.getElementById("movie").value);
-  //   };
-  //   console.log(ticketPrice);
+  const [ticketPrice, setTicketPrice] = useState(0);
+  const handleClass = () => {
+    setTicketPrice(document.getElementById("movie").value);
+  };
+  console.log(ticketPrice);
 
   //   const handleTicketProperty = (event) => {
   //     ticketPrice = event.target.value;
@@ -49,31 +49,39 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
   //     window.localStorage.setItem("selectedTicketPrice", selectedTicketPrice);
   //   };
 
-  //   const [selectedSeats, setSelectedSeats] = useState([]);
-  //   const [seats, setSeats] = useState();
-  //   const [count, setCount] = useState(0);
-  //   const [total, setTotal] = useState(0);
+  const [selectedSeats, setSelectedSeats] = useState([]);
+  const [seats, setSeats] = useState();
+  const [count, setCount] = useState(0);
+  const [total, setTotal] = useState(0);
 
-  //   const updateSelectedCount = () => {
-  //     setSelectedSeats(document.querySelectorAll(".row1 .seat .selected"));
-  //     setSeats(document.querySelectorAll("row1 .seat:not(.occupied"));
-  //     const seatsIndex = [...selectedSeats].map((seat) =>
-  //       [...seats].indexOf(seat)
-  //     );
-  //     localStorage.setItem("selectedSeats", JSON.stringify(seatsIndex));
+  const updateSelectedCount = () => {
+    setSelectedSeats(document.querySelectorAll(".row1 .seat.selected"));
+    console.log(selectedSeats); //selectedSeats er Length er sathe 1 jog korte hobe.... {problem}
 
-  //     const selectedSeatsCount = selectedSeats.length;
+    // setSeats(document.querySelectorAll("row1 .seat:not(.occupied"));
+    // const seatsIndex = [...selectedSeats].map((seat) =>
+    //   [...seats].indexOf(seat)
+    // );
+    // localStorage.setItem("selectedSeats", JSON.stringify(seatsIndex));
 
-  //     setCount(document.getElementById("count").innerText);
-  //     setTotal(document.getElementById("total").innerText);
+    const selectedSeatsCount = selectedSeats.length + 1;
+    console.log("seat length", selectedSeatsCount);
 
-  //     const count1 = selectedSeatsCount;
-  //     setCount(count1);
-  //     const total1 = selectedSeats.length * ticketPrice;
-  //     setTotal(total1);
+    setCount(document.getElementById("count").innerText);
+    setCount(selectedSeatsCount);
+    console.log("count", count);
 
-  //     console.log(count, total);
-  //   };
+    setTotal(document.getElementById("total").innerText);
+    setTotal(selectedSeatsCount * ticketPrice);
+    console.log("Total", total);
+
+    // const count1 = selectedSeatsCount;
+    // setCount(count1);
+    // const total1 = selectedSeats.length * ticketPrice;
+    // setTotal(total1);
+
+    // console.log(count, total);
+  };
 
   //   const [selectedSeatsLS, setSelectedSeatsLS] = useState();
   //   const [ticketSelect, setTicketSelect] = useState();
@@ -95,15 +103,16 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
   //     }
   //   };
 
-  //   const handleSeat = (event) => {
-  //     if (
-  //       event.target.classList.contains("seat") &&
-  //       !event.target.classList.contains("occupied")
-  //     ) {
-  //       event.target.classList.toggle("selected");
-  //       updateSelectedCount();
-  //     }
-  //   };
+  const handleContainer = (e) => {
+    if (
+      e.target.classList.contains("seat") &&
+      !e.target.classList.contains("occupied")
+    ) {
+      console.log(e.target);
+      e.target.classList.toggle("selected");
+    }
+    updateSelectedCount();
+  };
 
   return (
     <div>
@@ -210,7 +219,7 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
             <div className="col-md-6">
               <select
                 id="movie"
-                // onClick={handleClass}
+                onClick={handleClass}
                 // onChange={handleTicketProperty}
                 className="form-control form-select mb-3"
                 {...register("class", { required: true })}
@@ -251,6 +260,7 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
 
               <div
                 //   onClick={handleSeat}
+                onClick={handleContainer}
                 class="container"
               >
                 <div class="row1 d-flex justify-content-center">
@@ -297,8 +307,9 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
               </div>
 
               <p class="text text-white text-center">
-                You have selected <span id="count">0</span> seats for a price of
-                <span id="total"> 0</span> BDT
+                You have selected <span id="count">{count}</span> seats for a
+                price of
+                <span id="total"> {total}</span> BDT
               </p>
             </div>
           </div>
