@@ -31,6 +31,8 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
     localStorage.setItem("phone", data.phone);
     localStorage.setItem("From", data.from);
     localStorage.setItem("To", data.to);
+    alert("Thanks for your information");
+    closeModal();
   };
 
   const [ticketPrice, setTicketPrice] = useState(0);
@@ -41,8 +43,11 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
   const [selectedSeatsFromLocalStorage, setSelectedSeatsFromLocalStorage] =
     useState();
 
-  window.localStorage.setItem("Total", total);
-  window.localStorage.setItem("count", count);
+  localStorage.setItem("Total", total);
+  localStorage.setItem("count", count);
+
+  //   const [storeCount, setStoreCount] = useState(totalCount);
+  //   const [storeTotal, setStoreTotal] = useState(totalPrice);
 
   const ticketData = (classIndex, ticketPrice) => {
     localStorage.setItem("selectedClassIndex", classIndex);
@@ -351,7 +356,7 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
               style={{ color: "white", border: "2px solid white" }}
               className="btn btn-brand"
             >
-              Send
+              Submit
             </button>
           </div>
         </form>
