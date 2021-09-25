@@ -25,45 +25,69 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    console.log("form data", data);
+    localStorage.setItem("name", data.name);
+    localStorage.setItem("email", data.email);
+    localStorage.setItem("phone", data.phone);
+    localStorage.setItem("From", data.from);
+    localStorage.setItem("To", data.to);
   };
 
   const [ticketPrice, setTicketPrice] = useState(0);
+  const [selectedSeats, setSelectedSeats] = useState([]);
+  const [seats, setSeats] = useState([]);
+  const [count, setCount] = useState(0);
+  const [total, setTotal] = useState(0);
+  const [selectedSeatsFromLocalStorage, setSelectedSeatsFromLocalStorage] =
+    useState();
+
+  window.localStorage.setItem("Total", total);
+  window.localStorage.setItem("count", count);
 
   const ticketData = (classIndex, ticketPrice) => {
     localStorage.setItem("selectedClassIndex", classIndex);
     localStorage.setItem("selectedTicketPrice", ticketPrice);
   };
 
-  const handleClass = (e) => {
-    setTicketPrice(document.getElementById("movie").value);
+  ////// NOT WORKING
+  const populateUI = () => {
+    const localStorageSeats = JSON.parse(localStorage.getItem("selectedSeats"));
+    console.log("localStorageSeats", localStorageSeats);
+    if (localStorageSeats !== null && localStorageSeats.length > 0) {
+      seats.forEach((seat, index) => {
+        if (localStorageSeats[index] > -1) {
+          console.log("localStorageSeats[index]", localStorageSeats[index]);
+          setSelectedSeatsFromLocalStorage(
+            JSON.parse(localStorage.getItem("selectedSeats"))
+          );
 
+          //   seat.classList.add("selected");
+          //   const abc = seat.classList;
+          //   if (seat.classList !== "selected") {
+          //     // seat.classList.remove("seat");
+          //     seat.classList.add("selected");
+          //     //   console.log("seat.classList", seat.classList);
+          //   }
+          console.log("seat.classList out", selectedSeatsFromLocalStorage);
+        }
+      });
+    }
+  };
+
+  const handleClass = (e) => {
+    const index = e.nativeEvent.target.selectedIndex;
+    const className = e.nativeEvent.target[index].text;
+    localStorage.setItem("className", className);
+    console.log("className", className);
+    setTicketPrice(document.getElementById("movie").value);
     console.log("ticketPrice", ticketPrice);
     console.log("selected ticket Price", e.target.value);
     console.log("ticket class Index", e.target.selectedIndex);
-
     ticketData(e.target.selectedIndex, e.target.value);
-
     updateSelectedCount();
   };
+
   console.log(ticketPrice);
-
-  //   const handleTicketProperty = (event) => {
-  //     ticketPrice = event.target.value;
-  //     console.log(ticketPrice);
-  //     setTicketData(event.target.selectedIndex, event.target.value);
-  //     updateSelectedCount();
-  //   };
-
-  //   const setTicketData = (ticketIndex, selectedTicketPrice) => {
-  //     window.localStorage.setItem("selectedTicketIndex", ticketIndex);
-  //     window.localStorage.setItem("selectedTicketPrice", selectedTicketPrice);
-  //   };
-
-  const [selectedSeats, setSelectedSeats] = useState([]);
-  const [seats, setSeats] = useState([]);
-  const [count, setCount] = useState(0);
-  const [total, setTotal] = useState(0);
 
   const updateSelectedCount = () => {
     setSelectedSeats(document.querySelectorAll(".row1 .seat.selected"));
@@ -88,6 +112,7 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
     setTotal(document.getElementById("total").innerText);
     setTotal(selectedSeatsCount * ticketPrice);
   };
+
   console.log("Total", total);
   console.log("count", count);
 
@@ -100,26 +125,6 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
     updateSelectedCount();
   };
 
-  //   const [selectedSeatsLS, setSelectedSeatsLS] = useState();
-  //   const [ticketSelect, setTicketSelect] = useState();
-
-  //   const populateUI = () => {
-  //     setSelectedSeatsLS(JSON.parse(localStorage.getItem("selectedSeats")));
-  //     if (selectedSeatsLS !== null && selectedSeatsLS.length > 0) {
-  //       seats.forEach((seat, index) => {
-  //         if (selectedSeatsLS.indexOf(index) > -1) {
-  //           seat.classList.add("selected");
-  //         }
-  //       });
-  //     }
-  //     const selectedTicketIndex = localStorage.getItem("selectedTicketIndex");
-
-  //     if (selectedTicketIndex !== null) {
-  //       setTicketSelect(document.getElementById("movie"));
-  //       ticketSelect.selectedIndex = selectedTicketIndex;
-  //     }
-  //   };
-
   const handleContainer = (e) => {
     if (
       e.target.classList.contains("seat") &&
@@ -129,7 +134,17 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
       e.target.classList.toggle("selected");
     }
     updateSelectedCount();
+    // populateUI();    //Not working
   };
+
+  const myNewFunction = (sel) => {
+    console.log(
+      "testtesttesttesttesttesttesttesttesttest",
+      sel.options[sel.selectedIndex].text
+    );
+  };
+
+  console.log("count and total", count, total);
 
   return (
     <div>
@@ -233,7 +248,7 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
               </div>
             </div>
 
-            <div className="col-md-6">
+            <div className="form-group col-md-6">
               <select
                 id="movie"
                 onClick={handleClass}
