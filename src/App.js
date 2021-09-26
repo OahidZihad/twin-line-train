@@ -5,6 +5,9 @@ import Login from "./Components/Login/Login/Login";
 import PrivateRoute from "./Components/Login/PrivateRoute/PrivateRoute";
 import GetTickets from "./Components/GetTicket/GetTickets/GetTickets";
 import "./App.css";
+import Payment from "./Components/Payment/Payment/Payment";
+import Bkash from "./Components/Payment/Payment/Bkash/Bkash";
+import Stripe from "./Components/Payment/Payment/Stripe/Stripe";
 
 export const UserContext = createContext();
 
@@ -27,6 +30,15 @@ function App() {
           </Route>
           <PrivateRoute path="/tickets">
             <GetTickets></GetTickets>
+          </PrivateRoute>
+          <PrivateRoute path="/payment">
+            <Payment></Payment>
+          </PrivateRoute>
+          <PrivateRoute path="/bkash">
+            <Bkash></Bkash>
+          </PrivateRoute>
+          <PrivateRoute path="/stripe">
+            <Stripe></Stripe>
           </PrivateRoute>
         </Switch>
       </Router>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Modal from "react-modal";
+import { Link, useHistory } from "react-router-dom";
 import "./TicketForm.css";
 
 const customStyles = {
@@ -15,9 +16,11 @@ const customStyles = {
   },
 };
 
-Modal.setAppElement("#root");
+// Modal.setAppElement("#root");
 
 const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
+  const history = useHistory();
+
   const {
     register,
     handleSubmit,
@@ -33,6 +36,7 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
     localStorage.setItem("To", data.to);
     alert("Thanks for your information");
     closeModal();
+    handleModalSubmit();
   };
 
   const [ticketPrice, setTicketPrice] = useState(0);
@@ -147,6 +151,10 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
       "testtesttesttesttesttesttesttesttesttest",
       sel.options[sel.selectedIndex].text
     );
+  };
+
+  const handleModalSubmit = () => {
+    history.push("/payment");
   };
 
   console.log("count and total", count, total);
@@ -355,9 +363,18 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
               type="submit"
               style={{ color: "white", border: "2px solid white" }}
               className="btn btn-brand"
+              //   onClick={handleModalSubmit}
             >
               Submit
             </button>
+            {/* <Link
+              to="/payment"
+              type="submit"
+              style={{ color: "white", border: "2px solid white" }}
+              className="btn btn-brand"
+            >
+              Payment Page
+            </Link> */}
           </div>
         </form>
       </Modal>
