@@ -9,10 +9,7 @@ import {
 } from "@stripe/react-stripe-js";
 import "./SimpleCardForm.css";
 
-// import useResponsiveFontSize from "../../useResponsiveFontSize";
-
 const useOptions = () => {
-  // const fontSize = useResponsiveFontSize();
   const options = useMemo(
     () => ({
       style: {
@@ -47,8 +44,6 @@ const SplitCardForm = () => {
     event.preventDefault();
 
     if (!stripe || !elements) {
-      // Stripe.js has not loaded yet. Make sure to disable
-      // form submission until Stripe.js has loaded.
       return;
     }
 
@@ -70,14 +65,13 @@ const SplitCardForm = () => {
   };
 
   return (
-    <div>
+    <div className="container center_div">
       <form
+        className="mt-5 pt-5"
         onSubmit={handleSubmit}
         style={{
           fontSize: "18px",
           fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-          margin: "0",
-          width: "100%",
         }}
       >
         <label style={{ width: "100%" }}>
@@ -137,14 +131,18 @@ const SplitCardForm = () => {
           />
         </label>
         <br />
-        <button type="submit" disabled={!stripe}>
-          Pay
-        </button>
+        <div className="d-flex justify-content-center">
+          <button type="submit" disabled={!stripe}>
+            Pay
+          </button>
+        </div>
       </form>
-      {paymentError && <p style={{ color: "red" }}>{paymentError}</p>}
-      {paymentSuccess && (
-        <p style={{ color: "green" }}>Your payment was successful</p>
-      )}
+      <div className="d-flex justify-content-center mt-4">
+        {paymentError && <p style={{ color: "red" }}>{paymentError}</p>}
+        {paymentSuccess && (
+          <p style={{ color: "green" }}>Your payment was successful</p>
+        )}
+      </div>
     </div>
   );
 };
