@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useState } from "react";
 import {
   useStripe,
@@ -8,6 +8,7 @@ import {
   CardExpiryElement,
 } from "@stripe/react-stripe-js";
 import "./SimpleCardForm.css";
+import { Redirect, useHistory } from "react-router";
 
 const useOptions = () => {
   const options = useMemo(
@@ -40,6 +41,8 @@ const SplitCardForm = () => {
   const [paymentError, setPaymentError] = useState(null);
   const [paymentSuccess, setPaymentSuccess] = useState(null);
 
+  const history = useHistory();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -62,6 +65,11 @@ const SplitCardForm = () => {
       setPaymentSuccess(paymentMethod.id);
       setPaymentError(null);
     }
+    // handleButton();
+  };
+
+  const handleButton = () => {
+    history.push("/home");
   };
 
   return (
@@ -140,7 +148,12 @@ const SplitCardForm = () => {
       <div className="d-flex justify-content-center mt-4">
         {paymentError && <p style={{ color: "red" }}>{paymentError}</p>}
         {paymentSuccess && (
-          <p style={{ color: "green" }}>Your payment was successful</p>
+          <div>
+            <p style={{ color: "green" }}>Your payment was successful</p>
+            <button className="ms-4 w-75 btn-success" onClick={handleButton}>
+              Go To Home
+            </button>
+          </div>
         )}
       </div>
     </div>
