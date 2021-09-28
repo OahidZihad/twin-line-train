@@ -30,7 +30,7 @@ const HeaderMain = () => {
           style={{ fontWeight: 600 }}
           onClick={handleTicket}
         >
-          GET TICKET
+          TIME TRAVEL
         </button>
       </div>
       <div className="col-md-6">

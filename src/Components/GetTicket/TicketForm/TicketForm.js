@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Modal from "react-modal";
 import { Link, useHistory } from "react-router-dom";
@@ -28,15 +28,41 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log("form data", data);
     localStorage.setItem("name", data.name);
     localStorage.setItem("email", data.email);
     localStorage.setItem("phone", data.phone);
     localStorage.setItem("From", data.from);
     localStorage.setItem("To", data.to);
-    alert("Thanks for your information");
-    closeModal();
-    handleModalSubmit();
+
+    data.date = date.toDateString();
+    data.created = new Date().toDateString();
+    data.service = appointmentOn;
+    data.time = time;
+    data.className = localStorage.getItem("className");
+    data.totalSeats = localStorage.getItem("count");
+    data.totalPrice = localStorage.getItem("Total");
+    data.selectedSeats = localStorage.getItem("selectedSeats");
+    data.ticketPrice = localStorage.getItem("selectedTicketPrice");
+    console.log("form data", data);
+
+    fetch("http://localhost:4000/addTicket", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      // eikhane res.json() likhle alert kaj kore na
+      .then((success) => {
+        if (success) {
+          closeModal();
+          alert("Thanks for your information");
+          handleModalSubmit();
+        }
+      });
+
+    // alert("Thanks for your information");
+    // closeModal();
+    // handleModalSubmit();
   };
 
   const [ticketPrice, setTicketPrice] = useState(0);
@@ -261,7 +287,7 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
               </div>
             </div>
 
-            <div className="form-group col-md-6">
+            <div className="form-group col-md-6 mt-2">
               <select
                 id="movie"
                 onClick={handleClass}

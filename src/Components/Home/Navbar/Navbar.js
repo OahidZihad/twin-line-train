@@ -21,7 +21,7 @@ const Navbar = () => {
             onClick={handleHome}
             style={{ cursor: "pointer", fontWeight: "bold" }}
           >
-            Twin Line
+            Metro Rail
           </h2>
         </div>
         <button
