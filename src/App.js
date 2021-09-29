@@ -8,6 +8,8 @@ import "./App.css";
 import Payment from "./Components/Payment/Payment/Payment";
 import Bkash from "./Components/Payment/Payment/Bkash/Bkash";
 import Stripe from "./Components/Payment/Payment/Stripe/Stripe";
+import ContactUs from "./Components/Home/ContactUs/LostAndFound";
+import LostAndFound from "./Components/Home/ContactUs/LostAndFound";
 
 export const UserContext = createContext();
 
@@ -39,6 +41,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/stripe">
             <Stripe></Stripe>
+          </PrivateRoute>
+          <PrivateRoute path="/lostAndFound">
+            <LostAndFound></LostAndFound>
           </PrivateRoute>
         </Switch>
       </Router>

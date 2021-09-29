@@ -11,6 +11,10 @@ const Navbar = () => {
   const handleLogin = () => {
     history.push("/login");
   };
+
+  const handleLostAndFound = () => {
+    history.push("/lostAndFound");
+  };
   return (
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
@@ -101,10 +105,11 @@ const Navbar = () => {
             <li class="nav-item">
               <a
                 class="nav-link ms-5"
-                href="#contactUs"
+                href="#lostFound"
+                onClick={handleLostAndFound}
                 style={{ fontWeight: "bold", color: "#800000" }}
               >
-                Contact Us
+                Lost And Found
               </a>
             </li>
           </ul>
