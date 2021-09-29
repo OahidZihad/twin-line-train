@@ -10,7 +10,21 @@ const ContactUs = () => {
   } = useForm();
 
   const onSubmitContact = (data) => {
-    console.log(data);
+    data.date = new Date().toDateString();
+    console.log("lost and found data", data);
+
+    fetch("http://localhost:4000/lostAndFound", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((success) => {
+        if (success) {
+          alert("Thanks for helping others!");
+          window.location.reload();
+        }
+      });
   };
 
   return (
