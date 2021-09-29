@@ -43,7 +43,7 @@ const Sidebar = () => {
     history.push("/doctor/patients");
   };
 
-  const handleAddDoctor = () => {
+  const handleAddAdmin = () => {
     history.push("/dashboard/addAdmin");
   };
 
@@ -89,7 +89,7 @@ const Sidebar = () => {
             <div
               style={{ cursor: "pointer" }}
               className="text-white"
-              onClick={handleAddDoctor}
+              onClick={handleAddAdmin}
             >
               <FontAwesomeIcon icon={faUserPlus} /> <span>Add Admin</span>
             </div>

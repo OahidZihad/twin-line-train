@@ -18,101 +18,76 @@ const DashboardMain = () => {
         <div className="col-md-2">
           <Sidebar></Sidebar>
         </div>
-        <div className="col-md-10 row mt-4">
-          <div className="col-md-2 ms-4 me-5 mt-2">
-            <div
-              className="d-flex justify-content-center"
-              style={{
-                backgroundColor: "#F1536E",
-                color: "white",
-                border: "none",
-                borderRadius: "10px",
-                height: "80px",
-                width: "250px",
-              }}
-            >
-              <div className="ms-5 align-items-center justify-content-center d-flex">
-                <h1>05</h1>
+        <div className="col-md-10 ">
+          <div className="row mt-4 ms-2">
+            <div className="col-md-3 ms-2 me-5">
+              <div
+                className="d-flex justify-content-center"
+                style={{
+                  backgroundColor: "#F1536E",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "10px",
+                  height: "100px",
+                  width: "350px",
+                }}
+              >
+                <div className="ms-5 align-items-center justify-content-center d-flex">
+                  <h1>05</h1>
+                </div>
+                <div className="ms-3 mt-2 align-items-center justify-content-center d-flex">
+                  <p style={{ lineHeight: "20px" }}>Toal Admin</p>
+                </div>
               </div>
-              <div className="ms-3 mt-2 align-items-center justify-content-center d-flex">
-                <p style={{ lineHeight: "20px" }}>Pending Appointments</p>
+            </div>
+            <div className="col-md-3 ms-4 me-4">
+              <div
+                className="d-flex justify-content-center"
+                style={{
+                  backgroundColor: "#3DA5F4",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "10px",
+                  height: "100px",
+                  width: "350px",
+                }}
+              >
+                <div className="ms-5 align-items-center justify-content-center d-flex">
+                  <h1>0{tickets.length}</h1>
+                </div>
+                <div className="ms-3 mt-2 align-items-center justify-content-center d-flex">
+                  <p style={{ lineHeight: "20px" }}>Total Tickets</p>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-3 ms-5">
+              <div
+                className="d-flex justify-content-center"
+                style={{
+                  backgroundColor: "#00C689",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "10px",
+                  height: "100px",
+                  width: "350px",
+                }}
+              >
+                <div className="ms-3 align-items-center justify-content-center d-flex">
+                  <h1>05</h1>
+                </div>
+                <div className="ms-3 mt-2 align-items-center justify-content-center d-flex">
+                  <p style={{ lineHeight: "20px" }}>Today's Tickets</p>
+                </div>
               </div>
             </div>
           </div>
-          <div className="col-md-2 ms-4 mt-2 me-5">
-            <div
-              className="d-flex justify-content-center"
-              style={{
-                backgroundColor: "#3DA5F4",
-                color: "white",
-                border: "none",
-                borderRadius: "10px",
-                height: "80px",
-                width: "250px",
-              }}
-            >
-              <div className="ms-5 align-items-center justify-content-center d-flex">
-                <h1>05</h1>
-              </div>
-              <div className="ms-3 mt-2 align-items-center justify-content-center d-flex">
-                <p style={{ lineHeight: "20px" }}>Today's Appointments</p>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-2 ms-4 mt-2 me-5">
-            <div
-              className="d-flex justify-content-center"
-              style={{
-                backgroundColor: "#00C689",
-                color: "white",
-                border: "none",
-                borderRadius: "10px",
-                height: "80px",
-                width: "250px",
-              }}
-            >
-              <div className="ms-3 align-items-center justify-content-center d-flex">
-                <h1>{tickets.length}</h1>
-              </div>
-              <div className="ms-3 mt-2 align-items-center justify-content-center d-flex">
-                <p style={{ lineHeight: "20px" }}>
-                  Total
-                  <br />
-                  Appointments
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-2 ms-4 mt-2">
-            <div
-              className="d-flex justify-content-center"
-              style={{
-                backgroundColor: "#FDA006",
-                color: "white",
-                border: "none",
-                borderRadius: "10px",
-                height: "80px",
-                width: "250px",
-              }}
-            >
-              <div className="ms-3 align-items-center justify-content-center d-flex">
-                <h1>05</h1>
-              </div>
-              <div className="ms-3 mt-2 align-items-center justify-content-center d-flex">
-                <p style={{ lineHeight: "20px" }}>
-                  Total
-                  <br />
-                  Patients
-                </p>
-              </div>
-            </div>
-          </div>
+
           <div className="ms-4 mt-4 justify-content-center d-flex">
-            <h4>Total Appointments</h4>
+            <h4 className="text-brand">Total Appointments</h4>
           </div>
           <div className="d-flex justify-content-center">
             <div className="w-75" style={{ backgroundColor: "#F4FDFB" }}>
-              <table className="table table-borderless">
+              <table className="table table-borderless color-brand text-white">
                 <thead>
                   <tr>
                     <th className="text-secondary text-center" scope="col">
