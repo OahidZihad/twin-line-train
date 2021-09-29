@@ -82,36 +82,36 @@ const DashboardMain = () => {
             </div>
           </div>
 
-          <div className="ms-4 mt-4 justify-content-center d-flex">
-            <h4 className="text-brand">Total Appointments</h4>
+          <div className="ms-4 mt-4">
+            <h2 className="text-brand ms-5 ps-3">Total Appointments : </h2>
           </div>
-          <div className="d-flex justify-content-center">
-            <div className="w-75" style={{ backgroundColor: "#F4FDFB" }}>
-              <table className="table table-borderless color-brand text-white">
+          <div className="d-flex justify-content-center mt-4">
+            <div className="" style={{ backgroundColor: "#F4FDFB" }}>
+              <table className="table table-borderless color-brand text-dark">
                 <thead>
                   <tr>
-                    <th className="text-secondary text-center" scope="col">
+                    <th className="text-center" scope="col">
                       Sr No
                     </th>
-                    <th className="text-secondary text-center" scope="col">
+                    <th className="text-center" scope="col">
                       Name
                     </th>
-                    <th className="text-secondary text-center" scope="col">
+                    <th className="text-center" scope="col">
                       Gender
                     </th>
-                    <th className="text-secondary text-center" scope="col">
+                    <th className="text-center" scope="col">
                       Age
                     </th>
-                    <th className="text-secondary text-center" scope="col">
+                    <th className="text-center" scope="col">
                       Phone
                     </th>
-                    <th className="text-secondary text-center" scope="col">
+                    <th className="text-center" scope="col">
                       Email
                     </th>
-                    <th className="text-secondary text-center" scope="col">
+                    <th className="text-center" scope="col">
                       Service
                     </th>
-                    <th className="text-secondary text-center" scope="col">
+                    <th className="text-center" scope="col">
                       Action
                     </th>
                   </tr>
