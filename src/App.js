@@ -10,6 +10,9 @@ import Bkash from "./Components/Payment/Payment/Bkash/Bkash";
 import Stripe from "./Components/Payment/Payment/Stripe/Stripe";
 import ContactUs from "./Components/Home/ContactUs/LostAndFound";
 import LostAndFound from "./Components/Home/ContactUs/LostAndFound";
+import Dashboard from "./Components/Dashboard/Dashboard/Dashboard";
+import DashboardMain from "./Components/Dashboard/DashboardMain/DashboardMain";
+import AddAdmin from "./Components/Dashboard/AddAdmin/AddAdmin";
 
 export const UserContext = createContext();
 
@@ -44,6 +47,15 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/lostAndFound">
             <LostAndFound></LostAndFound>
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard/tickets">
+            <DashboardMain></DashboardMain>
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard/ticketsById">
+            <Dashboard></Dashboard>
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard/addAdmin">
+            <AddAdmin></AddAdmin>
           </PrivateRoute>
         </Switch>
       </Router>

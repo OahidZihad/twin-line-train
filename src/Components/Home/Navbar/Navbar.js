@@ -6,7 +6,7 @@ const Navbar = () => {
     history.push("/home");
   };
   const handleDashboard = () => {
-    // history.push("");
+    history.push("/dashboard/tickets");
   };
   const handleLogin = () => {
     history.push("/login");
@@ -73,7 +73,6 @@ const Navbar = () => {
             <li class="nav-item">
               <a
                 class="nav-link ms-5"
-                href="#Dashboard"
                 onClick={handleDashboard}
                 style={{
                   cursor: "pointer",
@@ -96,7 +95,6 @@ const Navbar = () => {
             <li class="nav-item">
               <a
                 class="nav-link ms-5"
-                href="#blog"
                 style={{ fontWeight: "bold", color: "#800000" }}
               >
                 Blog
@@ -105,9 +103,12 @@ const Navbar = () => {
             <li class="nav-item">
               <a
                 class="nav-link ms-5"
-                href="#lostFound"
                 onClick={handleLostAndFound}
-                style={{ fontWeight: "bold", color: "#800000" }}
+                style={{
+                  fontWeight: "bold",
+                  color: "#800000",
+                  cursor: "pointer",
+                }}
               >
                 Lost And Found
               </a>
