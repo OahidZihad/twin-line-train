@@ -15,11 +15,11 @@ import { UserContext } from "../../../App";
 
 const Sidebar = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-  const [isDoctor, setIsDoctor] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
-    fetch("https://mysterious-dawn-72386.herokuapp.com/isDoctor", {
+    fetch("http://localhost:4000/isAdmin", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ email: sessionStorage.getItem("loggedInUser") }),
@@ -27,7 +27,7 @@ const Sidebar = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setIsDoctor(data);
+        setIsAdmin(data);
       });
   }, []);
 
@@ -69,35 +69,37 @@ const Sidebar = () => {
           </div>
         </li>
 
-        <div>
-          <li>
-            <div
-              style={{ cursor: "pointer" }}
-              className="text-white"
-              onClick={handleTicket}
-            >
-              <FontAwesomeIcon icon={faCalendar} /> <span>Tickets</span>
-            </div>
-          </li>
-          <li>
-            <div
-              style={{ cursor: "pointer" }}
-              className="text-white"
-              onClick={handleTodaysTicket}
-            >
-              <FontAwesomeIcon icon={faUsers} /> <span>Todays Tickets</span>
-            </div>
-          </li>
-          <li>
-            <div
-              style={{ cursor: "pointer" }}
-              className="text-white"
-              onClick={handleAddAdmin}
-            >
-              <FontAwesomeIcon icon={faUserPlus} /> <span>Add Admin</span>
-            </div>
-          </li>
-        </div>
+        {isAdmin && (
+          <div>
+            <li>
+              <div
+                style={{ cursor: "pointer" }}
+                className="text-white"
+                onClick={handleTicket}
+              >
+                <FontAwesomeIcon icon={faCalendar} /> <span>Tickets</span>
+              </div>
+            </li>
+            <li>
+              <div
+                style={{ cursor: "pointer" }}
+                className="text-white"
+                onClick={handleTodaysTicket}
+              >
+                <FontAwesomeIcon icon={faUsers} /> <span>Todays Tickets</span>
+              </div>
+            </li>
+            <li>
+              <div
+                style={{ cursor: "pointer" }}
+                className="text-white"
+                onClick={handleAddAdmin}
+              >
+                <FontAwesomeIcon icon={faUserPlus} /> <span>Add Admin</span>
+              </div>
+            </li>
+          </div>
+        )}
         <li>
           <Link to="/doctor/setting" className="text-white"></Link>
           <div style={{ cursor: "pointer" }} className="text-white">
