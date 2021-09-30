@@ -12,6 +12,7 @@ import LostAndFound from "./Components/Home/LostAndFound/LostAndFound";
 import Dashboard from "./Components/Dashboard/Dashboard/Dashboard";
 import DashboardMain from "./Components/Dashboard/DashboardMain/DashboardMain";
 import AddAdmin from "./Components/Dashboard/AddAdmin/AddAdmin";
+import TodaysTicket from "./Components/Dashboard/TodaysTicket/TodaysTicket";
 
 export const UserContext = createContext();
 
@@ -50,8 +51,11 @@ function App() {
           <PrivateRoute path="/dashboard/tickets">
             <DashboardMain></DashboardMain>
           </PrivateRoute>
-          <PrivateRoute path="/dashboard/ticketsById">
+          <PrivateRoute path="/dashboard/ticketsByDate">
             <Dashboard></Dashboard>
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard/todaysTicket">
+            <TodaysTicket></TodaysTicket>
           </PrivateRoute>
           <PrivateRoute path="/dashboard/addAdmin">
             <AddAdmin></AddAdmin>

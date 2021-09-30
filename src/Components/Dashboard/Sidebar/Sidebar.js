@@ -36,20 +36,19 @@ const Sidebar = () => {
   };
 
   const handleTicket = () => {
-    history.push("/dashboard/ticketsById");
+    history.push("/dashboard/ticketsByDate");
   };
 
-  const handlePatients = () => {
-    history.push("/doctor/patients");
+  const handleTodaysTicket = () => {
+    history.push("/dashboard/todaysTicket");
   };
 
   const handleAddAdmin = () => {
     history.push("/dashboard/addAdmin");
   };
 
-  const handleSettings = () => {
-    history.push();
-  };
+  const handleSignOut = (e) => {};
+
   return (
     <div
       className="sidebar d-flex flex-column justify-content-between col-md-2 py-5 px-4"
@@ -80,7 +79,7 @@ const Sidebar = () => {
             <div
               style={{ cursor: "pointer" }}
               className="text-white"
-              onClick={handlePatients}
+              onClick={handleTodaysTicket}
             >
               <FontAwesomeIcon icon={faUsers} /> <span>Todays Tickets</span>
             </div>
@@ -97,11 +96,7 @@ const Sidebar = () => {
         </div>
         <li>
           <Link to="/doctor/setting" className="text-white"></Link>
-          <div
-            style={{ cursor: "pointer" }}
-            className="text-white"
-            onClick={handleSettings}
-          >
+          <div style={{ cursor: "pointer" }} className="text-white">
             <FontAwesomeIcon icon={faCog} /> <span>Settings</span>
           </div>
         </li>
@@ -111,7 +106,7 @@ const Sidebar = () => {
         <div
           style={{ cursor: "pointer" }}
           className="text-white"
-          onClick={handleSettings}
+          onClick={handleSignOut}
         >
           <FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span>
         </div>
