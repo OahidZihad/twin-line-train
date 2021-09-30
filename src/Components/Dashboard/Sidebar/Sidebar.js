@@ -47,7 +47,11 @@ const Sidebar = () => {
     history.push("/dashboard/addAdmin");
   };
 
-  const handleSignOut = (e) => {};
+  const handleSignOut = (e) => {
+    sessionStorage.clear();
+    window.location.reload();
+    history.push("/login");
+  };
 
   return (
     <div
