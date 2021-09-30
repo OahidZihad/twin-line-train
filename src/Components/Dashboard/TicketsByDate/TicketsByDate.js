@@ -4,7 +4,7 @@ const TicketsByDate = ({ ticket }) => {
   console.log({ ticket });
   return (
     <div>
-      <h2 className="text-brand text-center">Appointments</h2>
+      <h2 className="text-brand text-center pe-5 me-5 mt-5">Tickets</h2>
       {ticket.length ? (
         <div>
           <table className="table table-borderless">
@@ -17,16 +17,16 @@ const TicketsByDate = ({ ticket }) => {
                   Phone
                 </th>
                 <th className="text-secondary" scope="col">
-                  Email
+                  Class & Price
                 </th>
               </tr>
             </thead>
             <tbody>
-              {ticket.map((app) => (
+              {ticket.map((tick) => (
                 <tr>
-                  <td>{app.name}</td>
-                  <td>{app.phone}</td>
-                  <td>{app.email}</td>
+                  <td>{tick.name}</td>
+                  <td>{tick.phone}</td>
+                  <td>{tick.className}</td>
                 </tr>
               ))}
             </tbody>

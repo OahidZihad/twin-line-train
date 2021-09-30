@@ -39,20 +39,19 @@ const AddAdmin = () => {
 
   return (
     <section>
-      <div className="row">
+      <div className="d-flex">
         <div className="col-md-2">
           <Sidebar></Sidebar>
         </div>
         <div className="col-md-10">
-          <div className="navbar-style">
+          <div className="navbar-style color-brand">
             <nav style={{ height: "70px" }} class="navbar navbar-light">
               <span
                 style={{
-                  color: "#800000",
                   fontSize: "25px",
                   marginLeft: "20px",
                 }}
-                class="navbar-brand mb-0 h1"
+                class="navbar-brand mb-0 h1 text-white fst-italic "
               >
                 Add an Admin
               </span>
@@ -61,7 +60,9 @@ const AddAdmin = () => {
           <div className="mt-3 mx-2 px-2">
             <form onSubmit={handleSubmit}>
               <div class="form-group">
-                <label>Email address</label>
+                <label className="text-brand fs-5 fst-italic">
+                  Email address
+                </label>
                 <input
                   type="email"
                   class="form-control"
@@ -70,9 +71,13 @@ const AddAdmin = () => {
                   onBlur={handleBlur}
                 />
               </div>
-              {/* <br /> */}
               <div class="form-group">
-                <label for="exampleInputPassword1">Name</label>
+                <label
+                  className="text-brand fs-5 fst-italic"
+                  for="exampleInputPassword1"
+                >
+                  Name
+                </label>
                 <input
                   type="text"
                   class="form-control"
@@ -81,9 +86,13 @@ const AddAdmin = () => {
                   onBlur={handleBlur}
                 />
               </div>
-              {/* <br /> */}
               <div class="form-group">
-                <label for="exampleInputPassword1">Upload Image</label>
+                <label
+                  className="text-brand fs-5 fst-italic"
+                  for="exampleInputPassword1"
+                >
+                  Upload Image
+                </label>
                 <input
                   type="file"
                   class="form-control"

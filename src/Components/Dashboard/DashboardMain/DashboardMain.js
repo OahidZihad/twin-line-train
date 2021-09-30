@@ -32,11 +32,13 @@ const DashboardMain = () => {
                   width: "350px",
                 }}
               >
-                <div className="ms-5 align-items-center justify-content-center d-flex">
+                <div className="align-items-center justify-content-center d-flex">
                   <h1>05</h1>
                 </div>
                 <div className="ms-3 mt-2 align-items-center justify-content-center d-flex">
-                  <p style={{ lineHeight: "20px" }}>Toal Admin</p>
+                  <p style={{ lineHeight: "20px", fontSize: "30px" }}>
+                    Toal Admin
+                  </p>
                 </div>
               </div>
             </div>
@@ -52,11 +54,13 @@ const DashboardMain = () => {
                   width: "350px",
                 }}
               >
-                <div className="ms-5 align-items-center justify-content-center d-flex">
+                <div className="align-items-center justify-content-center d-flex">
                   <h1>0{tickets.length}</h1>
                 </div>
                 <div className="ms-3 mt-2 align-items-center justify-content-center d-flex">
-                  <p style={{ lineHeight: "20px" }}>Total Tickets</p>
+                  <p style={{ lineHeight: "20px", fontSize: "30px" }}>
+                    Total Tickets
+                  </p>
                 </div>
               </div>
             </div>
@@ -72,61 +76,70 @@ const DashboardMain = () => {
                   width: "350px",
                 }}
               >
-                <div className="ms-3 align-items-center justify-content-center d-flex">
+                <div className="align-items-center justify-content-center d-flex">
                   <h1>05</h1>
                 </div>
                 <div className="ms-3 mt-2 align-items-center justify-content-center d-flex">
-                  <p style={{ lineHeight: "20px" }}>Today's Tickets</p>
+                  <p style={{ lineHeight: "20px", fontSize: "30px" }}>
+                    Today's Tickets
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-
           <div className="ms-4 mt-4">
-            <h2 className="text-brand ms-5 ps-3">Total Appointments : </h2>
+            <h2 className="text-brand ms-5 ps-3">Total Tickets : </h2>
           </div>
           <div className="d-flex justify-content-center mt-4">
             <div className="" style={{ backgroundColor: "#F4FDFB" }}>
-              <table className="table table-borderless color-brand text-dark">
+              <table className="table table-borderless color-brand text-dark text-lowercase">
                 <thead>
                   <tr>
-                    <th className="text-center" scope="col">
+                    <th className="text-center text-uppercase" scope="col">
                       Sr No
                     </th>
-                    <th className="text-center" scope="col">
+                    <th className="text-center text-uppercase" scope="col">
                       Name
                     </th>
-                    <th className="text-center" scope="col">
-                      Gender
-                    </th>
-                    <th className="text-center" scope="col">
-                      Age
-                    </th>
-                    <th className="text-center" scope="col">
+                    <th className="text-center text-uppercase" scope="col">
                       Phone
                     </th>
-                    <th className="text-center" scope="col">
-                      Email
+
+                    <th className="text-center text-uppercase" scope="col">
+                      Shift
                     </th>
-                    <th className="text-center" scope="col">
-                      Service
+                    <th className="text-center text-uppercase" scope="col">
+                      Time
                     </th>
-                    <th className="text-center" scope="col">
-                      Action
+                    <th className="text-center text-uppercase" scope="col">
+                      Class & Price
+                    </th>
+                    <th className="text-center text-uppercase" scope="col">
+                      From
+                    </th>
+                    <th className="text-center text-uppercase" scope="col">
+                      To
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  {tickets.map((appointment, index) => (
+                  {tickets.map((tickets, index) => (
                     <tr>
-                      <td className="text-center">{index + 1}</td>
-                      <td className="text-center">{appointment.name}</td>
-                      <td className="text-center">{appointment.gender}</td>
-                      <td className="text-center">{appointment.age}</td>
-                      <td className="text-center">{appointment.phone}</td>
-                      <td className="text-center">{appointment.email}</td>
-                      <td className="text-center">{appointment.service}</td>
-                      <td className="text-center">Update / Delete</td>
+                      <td className="text-center text-white">{index + 1}</td>
+                      <td className="text-center text-white">{tickets.name}</td>
+                      <td className="text-center text-white">
+                        {tickets.phone}
+                      </td>
+
+                      <td className="text-center text-white">
+                        {tickets.service}
+                      </td>
+                      <td className="text-center text-white">{tickets.time}</td>
+                      <td className="text-center text-white">
+                        {tickets.className}
+                      </td>
+                      <td className="text-center text-white">{tickets.from}</td>
+                      <td className="text-center text-white">{tickets.to}</td>
                     </tr>
                   ))}
                 </tbody>

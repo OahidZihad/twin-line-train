@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import { UserContext } from "../../../App";
 import Sidebar from "../Sidebar/Sidebar";
 import TicketsByDate from "../TicketsByDate/TicketsByDate";
 import "./Dashboard.css";
@@ -12,7 +11,6 @@ const containerStyle = {
 };
 
 const Dashboard = () => {
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const [selectedDate, setSelectedDate] = useState(new Date().toDateString());
   const [tickets, setTickets] = useState([]);
 
@@ -40,20 +38,36 @@ const Dashboard = () => {
 
   return (
     <section>
-      <div style={containerStyle} className="row">
+      <div className="d-flex">
         <div className="col-md-2">
           <Sidebar></Sidebar>
         </div>
-        <div className="col-md-5 d-flex justify-content-center calendar-height">
-          <Calendar
-            className="color-brand text-white"
-            onChange={handleDateChange}
-            value={new Date()}
-          />
-        </div>
-        <div className="col-md-5">
-          {/* <AppointmentsByDate appointment={appointments}></AppointmentsByDate> */}
-          <TicketsByDate ticket={tickets}></TicketsByDate>
+        <div className="col-md-10">
+          <div className="navbar-style color-brand">
+            <nav style={{ height: "70px" }} class="navbar navbar-light">
+              <span
+                style={{
+                  fontSize: "25px",
+                  marginLeft: "20px",
+                }}
+                class="navbar-brand mb-0 h1 text-white fst-italic "
+              >
+                Tickets By Date
+              </span>
+            </nav>
+          </div>
+          <div className="d-flex">
+            <div className="col-md-5 mt-5 mx-5 px-2">
+              <Calendar
+                className="color-brand text-white"
+                onChange={handleDateChange}
+                value={new Date()}
+              />
+            </div>
+            <div className="col-md-5 ">
+              <TicketsByDate ticket={tickets}></TicketsByDate>
+            </div>
+          </div>
         </div>
       </div>
     </section>
