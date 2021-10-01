@@ -65,6 +65,22 @@ const SplitCardForm = () => {
       setPaymentSuccess(paymentMethod.id);
       setPaymentError(null);
     }
+
+    ///////////////////////// try to fetch payment data.............
+
+    // fetch("http://localhost:4000/addStripeData", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(paymentSuccess),
+    // })
+    //   .then((res) => res.json())
+    //   // eikhane res.json() likhle alert kaj kore na
+    //   .then((success) => {
+    //     if (success) {
+    //       alert("Thanks for Pay");
+    //     }
+    //   });
+
     // handleButton();
   };
 
