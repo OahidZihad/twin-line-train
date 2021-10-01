@@ -2,13 +2,20 @@ import { useForm } from "react-hook-form";
 import React from "react";
 import "./LostAndFound.css";
 import Navbar from "../Navbar/Navbar";
+import { useHistory } from "react-router";
 
 const LostAndFound = () => {
+  const history = useHistory();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const handleFindLostItem = () => {
+    history.push("/findYourItems");
+  };
 
   const onSubmitContact = (data) => {
     data.date = new Date().toDateString();
@@ -37,10 +44,19 @@ const LostAndFound = () => {
             <div className="text-center mt-2 pt-5" style={{ opacity: ".9" }}>
               <h2 className="text-white">Please Share, What You Found !</h2>
             </div>
-            <div className="mx-5 px-5 my-3">
+            <div className="d-flex justify-content-center">
+              <button
+                className="bg-danger"
+                onClick={handleFindLostItem}
+                style={{ opacity: ".9" }}
+              >
+                Find Your Lost Items
+              </button>
+            </div>
+            <div className="mx-5 px-5">
               <form
                 style={{ opacity: ".9" }}
-                className="p-5"
+                className="p-4"
                 onSubmit={handleSubmit(onSubmitContact)}
               >
                 <div class="form-group mb-3">
