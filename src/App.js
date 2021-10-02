@@ -14,6 +14,7 @@ import DashboardMain from "./Components/Dashboard/DashboardMain/DashboardMain";
 import AddAdmin from "./Components/Dashboard/AddAdmin/AddAdmin";
 import TodaysTicket from "./Components/Dashboard/TodaysTicket/TodaysTicket";
 import FindYourItems from "./Components/Home/FindYourItems/FindYourItems";
+import TourGuide from "./Components/Home/TourGuide/TourGuide";
 
 export const UserContext = createContext();
 
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <Route exact path="/">
             <Home></Home>
+          </Route>
+          <Route path="/tourGuide">
+            <TourGuide></TourGuide>
           </Route>
           <PrivateRoute path="/tickets">
             <GetTickets></GetTickets>
