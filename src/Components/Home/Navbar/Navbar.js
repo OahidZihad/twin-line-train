@@ -19,6 +19,10 @@ const Navbar = () => {
   const handleTourGuide = () => {
     history.push("/tourGuide");
   };
+
+  const handleStations = () => {
+    history.push("/stations");
+  };
   return (
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
@@ -90,10 +94,14 @@ const Navbar = () => {
             <li class="nav-item">
               <a
                 class="nav-link ms-5"
-                href="#reviews"
-                style={{ fontWeight: "bold", color: "#800000" }}
+                onClick={handleStations}
+                style={{
+                  fontWeight: "bold",
+                  color: "#800000",
+                  cursor: "pointer",
+                }}
               >
-                Reviews
+                Stations
               </a>
             </li>
             <li class="nav-item">
