@@ -78,19 +78,7 @@ const Navbar = () => {
                 Login
               </a>
             </li>
-            <li class="nav-item">
-              <a
-                class="nav-link ms-5"
-                onClick={handleDashboard}
-                style={{
-                  cursor: "pointer",
-                  fontWeight: "bold",
-                  color: "#800000",
-                }}
-              >
-                Dashboard
-              </a>
-            </li>
+
             <li class="nav-item">
               <a
                 class="nav-link ms-5"
@@ -127,7 +115,20 @@ const Navbar = () => {
                   cursor: "pointer",
                 }}
               >
-                Lost And Found
+                Lost & Found
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link ms-5"
+                onClick={handleDashboard}
+                style={{
+                  cursor: "pointer",
+                  fontWeight: "bold",
+                  color: "#800000",
+                }}
+              >
+                Dashboard
               </a>
             </li>
           </ul>

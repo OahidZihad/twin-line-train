@@ -32,7 +32,7 @@ const TodaysTicket = () => {
         </div>
         <div className="col-md-9 my-5 ms-5 ps-5">
           <h2 className="text-brand mb-4">Today's Tickets :</h2>
-          <table className="table table-borderless color-brand text-white text-lowercase">
+          <table className="table table-borderless color-brand2 text-white text-lowercase">
             <thead>
               <tr>
                 <th className="text-uppercase text-center" scope="col">

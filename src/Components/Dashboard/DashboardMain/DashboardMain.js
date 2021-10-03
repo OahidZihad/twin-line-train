@@ -92,7 +92,7 @@ const DashboardMain = () => {
           </div>
           <div className="d-flex justify-content-center mt-4">
             <div className="" style={{ backgroundColor: "#F4FDFB" }}>
-              <table className="table table-borderless color-brand text-dark text-lowercase">
+              <table className="table table-borderless color-brand2 text-dark text-lowercase">
                 <thead>
                   <tr>
                     <th className="text-center text-uppercase" scope="col">

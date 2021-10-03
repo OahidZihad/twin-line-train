@@ -8,7 +8,7 @@ const TourGuide = () => {
       <div className="mt-2">
         <Navbar></Navbar>
       </div>
-      <div className="container bg-dark mt-5 px-5 py-5">
+      <div className="container color-brand2 mt-5 px-5 py-5">
         <div className="container-fluid fst-italic  text-white">
           <br />
           <h1 className="d-flex justify-content-center">

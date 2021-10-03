@@ -59,7 +59,7 @@ const Dashboard = () => {
           <div className="d-flex">
             <div className="col-md-5 mt-5 mx-5 px-2">
               <Calendar
-                className="color-brand text-white"
+                className="color-brand2 text-white"
                 onChange={handleDateChange}
                 value={new Date()}
               />

@@ -8,7 +8,7 @@ const FindYourItemsDetail = ({ foundItem }) => {
         {foundItem.map((item) => (
           <div className="col-md-3">
             <div
-              className="card text-white bg-danger ms-2 me-2 mt-4"
+              className="card text-white color-brand2 ms-2 me-2 mt-4"
               style={{ width: "100%", height: "250px", overflow: "auto" }}
             >
               <div class="card-header">Founder: {item.email}</div>

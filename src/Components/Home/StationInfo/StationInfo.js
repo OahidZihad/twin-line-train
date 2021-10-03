@@ -9,7 +9,7 @@ const StationInfo = () => {
       <div className="mt-2">
         <Navbar></Navbar>
       </div>
-      <div className="d-flex justify-content-center bg-dark pt-5 pb-5 mt-3">
+      <div className="d-flex justify-content-center color-brand pt-5 pb-5 mt-3">
         <img style={{ width: "70%" }} src={station} alt="" />
       </div>
       <div>
