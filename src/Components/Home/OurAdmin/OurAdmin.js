@@ -4,7 +4,7 @@ import OurAdminDetail from "../OurAdminDetail/OurAdminDetail";
 const OurAdmin = () => {
   const [admins, setAdmins] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4000/admins")
+    fetch("https://nameless-waters-10044.herokuapp.com/admins")
       .then((res) => res.json())
       .then((data) => setAdmins(data));
   }, []);

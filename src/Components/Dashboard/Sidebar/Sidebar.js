@@ -16,7 +16,7 @@ const Sidebar = () => {
   const history = useHistory();
 
   useEffect(() => {
-    fetch("http://localhost:4000/isAdmin", {
+    fetch("https://nameless-waters-10044.herokuapp.com/isAdmin", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ email: sessionStorage.getItem("loggedInUser") }),

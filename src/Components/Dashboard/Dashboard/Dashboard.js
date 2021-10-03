@@ -21,7 +21,7 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:4000/ticketsByDate", {
+    fetch("https://nameless-waters-10044.herokuapp.com/ticketsByDate", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({

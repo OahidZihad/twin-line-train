@@ -68,7 +68,7 @@ const SplitCardForm = () => {
 
     ///////////////////////// try to fetch payment data.............
 
-    // fetch("http://localhost:4000/addStripeData", {
+    // fetch("https://nameless-waters-10044.herokuapp.com/addStripeData", {
     //   method: "POST",
     //   headers: { "Content-Type": "application/json" },
     //   body: JSON.stringify(paymentSuccess),

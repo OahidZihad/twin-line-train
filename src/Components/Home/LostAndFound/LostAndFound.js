@@ -21,7 +21,7 @@ const LostAndFound = () => {
     data.date = new Date().toDateString();
     console.log("lost and found data", data);
 
-    fetch("http://localhost:4000/lostAndFound", {
+    fetch("https://nameless-waters-10044.herokuapp.com/lostAndFound", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

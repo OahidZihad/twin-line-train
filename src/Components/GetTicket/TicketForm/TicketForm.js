@@ -45,7 +45,7 @@ const TicketForm = ({ modalIsOpen, closeModal, appointmentOn, date, time }) => {
     data.ticketPrice = localStorage.getItem("selectedTicketPrice");
     console.log("form data", data);
 
-    fetch("http://localhost:4000/addTicket", {
+    fetch("https://nameless-waters-10044.herokuapp.com/addTicket", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

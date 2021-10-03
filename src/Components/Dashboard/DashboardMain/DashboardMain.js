@@ -5,7 +5,7 @@ const DashboardMain = () => {
   const [tickets, setTickets] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/tickets")
+    fetch("https://nameless-waters-10044.herokuapp.com/tickets")
       .then((response) => response.json())
       .then((data) => {
         console.log("ticket data", data);

@@ -5,7 +5,7 @@ import Navbar from "../Navbar/Navbar";
 const FindYourItems = () => {
   const [foundItems, setFoundItems] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4000/lostItems")
+    fetch("https://nameless-waters-10044.herokuapp.com/lostItems")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
