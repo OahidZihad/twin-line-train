@@ -12,7 +12,7 @@ const OurAdmin = () => {
   return (
     <section>
       <div className="mt-5 pt-5">
-        <h2 className="text-center text-brand">About Us /Our Admin</h2>
+        <h2 className="text-center text-brand">Our Admin</h2>
       </div>
       <div className="d-flex justify-content-center mt-5">
         <div className="w-75 row">

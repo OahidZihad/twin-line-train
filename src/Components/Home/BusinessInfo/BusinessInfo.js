@@ -15,13 +15,13 @@ const infosData = [
   },
   {
     title: "Visit Our Location",
-    description: "Shukhnagar, Gaibandha",
+    description: "Dhanmondi, Dhaka",
     icon: faMapMarker,
     background: "dark",
   },
   {
     title: "Call Us Now",
-    description: "+88-01752746973",
+    description: "+88-01675193182",
     icon: faPhone,
     background: "primary",
   },

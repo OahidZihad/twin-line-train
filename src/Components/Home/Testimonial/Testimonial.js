@@ -8,24 +8,24 @@ import TestimonialDetail from "../TestimonialDetail/TestimonialDetail";
 const testimonialData = [
   {
     description:
-      "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distrubu to using Content here, content",
+      "Very good tour and travel agency in Bangladesh in terms of quality service with low prices. It was a great pleasure tour for my friends and family. Thank You.",
     img: patient1,
-    name: "Winson Herry",
-    address: "California",
+    name: "Tariqul Tushar",
+    address: "Dhanmondi",
   },
   {
     description:
-      "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distrubu to using Content here, content",
+      "Few things command more respect than hard work, integrity, dedication and the ability to follow through. This travel agent is an excellent listener and pays attention to detail.",
     img: patient2,
-    name: "Winson Herry",
-    address: "California",
+    name: "Soaib Mashrafi",
+    address: "Mirpur",
   },
   {
     description:
-      "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distrubu to using Content here, content",
+      "Uber Health helps us stay on schedule for our enrollment. The rides get participants here who would have otherwise not shown up. Overall experience is good.",
     img: patient3,
-    name: "Winson Herry",
-    address: "California",
+    name: "Abu Sayem",
+    address: "Uttara",
   },
 ];
 

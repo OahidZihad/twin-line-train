@@ -10,18 +10,18 @@ const serviceData = [
     name: "RFID Payment",
     img: rfid,
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, sapiente elit. Soluta, sapiente",
+      "One such development in payment card industry is the use of Radio Frequency Identification, or RFID technology.",
   },
   {
     name: "Emergency Treatment",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, sapiente elit. Soluta, sapiente",
+      "The Emergency Treatment Area (ETA) is a designated area that provides protection to the hospital and care for patients.",
     img: treatment,
   },
   {
     name: "Fresh Foods",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, sapiente elit. Soluta, sapiente",
+      "Fresh food is food which has not been preserved and has not spoiled yet. Which is served in metro rail with cheap rate.",
     img: food,
   },
 ];

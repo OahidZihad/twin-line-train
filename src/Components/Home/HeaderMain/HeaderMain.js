@@ -20,10 +20,10 @@ const HeaderMain = () => {
           Here
         </h1>
         <p className="">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae
-          sunt necessitatibus, doloribus earum perferendis eligendi, commodi
-          quaerat debitis repellendus deserunt fugiat! Labore repellendus quam
-          ab autem adipisci culpa minima deserunt.
+          Metro Rail is a true online travel agency for Bangladeshi people with
+          lowest price guarantee. We are offering ready-made and customized
+          both travel itineraries. An online user easily can book any tour
+          packages.
         </p>
         <button
           className="btn btn-brand text-white"
