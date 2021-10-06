@@ -54,7 +54,6 @@ const Navbar = () => {
                 class="nav-link ms-5 active"
                 aria-current="page"
                 onClick={handleHome}
-                href="#home"
                 style={{
                   cursor: "pointer",
                   fontWeight: "bold",
@@ -67,7 +66,6 @@ const Navbar = () => {
             <li class="nav-item">
               <a
                 class="nav-link ms-5"
-                href="#login"
                 onClick={handleLogin}
                 style={{
                   cursor: "pointer",

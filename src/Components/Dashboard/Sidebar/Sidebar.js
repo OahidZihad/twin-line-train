@@ -69,18 +69,17 @@ const Sidebar = () => {
             <FontAwesomeIcon icon={faGripHorizontal} /> <span>Dashboard</span>
           </div>
         </li>
-
+        <li>
+          <div
+            style={{ cursor: "pointer" }}
+            className="text-white"
+            onClick={handleTicket}
+          >
+            <FontAwesomeIcon icon={faCalendar} /> <span>Tickets</span>
+          </div>
+        </li>
         {isAdmin && (
           <div>
-            <li>
-              <div
-                style={{ cursor: "pointer" }}
-                className="text-white"
-                onClick={handleTicket}
-              >
-                <FontAwesomeIcon icon={faCalendar} /> <span>Tickets</span>
-              </div>
-            </li>
             <li>
               <div
                 style={{ cursor: "pointer" }}
