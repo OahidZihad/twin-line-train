@@ -16,6 +16,7 @@ import TodaysTicket from "./Components/Dashboard/TodaysTicket/TodaysTicket";
 import FindYourItems from "./Components/Home/FindYourItems/FindYourItems";
 import TourGuide from "./Components/Home/TourGuide/TourGuide";
 import StationInfo from "./Components/Home/StationInfo/StationInfo";
+import Settings from "./Components/Dashboard/Settings/Settings";
 
 export const UserContext = createContext();
 
@@ -71,6 +72,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/dashboard/addAdmin">
             <AddAdmin></AddAdmin>
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard/settings">
+            <Settings></Settings>
           </PrivateRoute>
         </Switch>
       </Router>

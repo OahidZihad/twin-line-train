@@ -43,8 +43,8 @@ const Footer = () => {
             Haji Bari Mosque, Hajir Bazar <br />
             Vatara, Dhaka - 1229
           </p> */}
-          <p>Haji Bari Mosque, Hajir Bazar</p>
-          <p>Vatara, Dhaka - 1229</p>
+          <p>102/1, Sukrabad Mirpur Rd</p>
+          <p>DIU, Dhaka 1207</p>
           <div className="mt-5 mb-5">
             <FontAwesomeIcon
               icon={["fab", "facebook"]}
@@ -81,7 +81,7 @@ const Footer = () => {
                 fontWeight: "bold",
               }}
             >
-              +88 01755555878
+              +88 01675193182
             </button>
           </div>
         </div>

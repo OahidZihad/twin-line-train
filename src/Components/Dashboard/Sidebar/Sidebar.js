@@ -44,6 +44,10 @@ const Sidebar = () => {
     history.push("/dashboard/addAdmin");
   };
 
+  const handleSettings = () => {
+    history.push("/dashboard/settings");
+  };
+
   const handleSignOut = (e) => {
     sessionStorage.clear();
     window.location.reload();
@@ -98,10 +102,10 @@ const Sidebar = () => {
           </div>
         )}
         <li>
-          <Link to="/doctor/setting" className="text-white"></Link>
           <div
             style={{ cursor: "pointer" }}
-            className="text-white text-decoration-line-through"
+            className="text-white"
+            onClick={handleSettings}
           >
             <FontAwesomeIcon icon={faCog} /> <span>Settings</span>
           </div>

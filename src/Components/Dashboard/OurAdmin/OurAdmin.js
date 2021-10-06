@@ -11,11 +11,11 @@ const OurAdmin = () => {
 
   return (
     <section>
-      <div className="mt-5 pt-5">
+      <div className="mt-4">
         <h2 className="text-center text-brand">Our Admin</h2>
       </div>
-      <div className="d-flex justify-content-center mt-5">
-        <div className="w-75 row">
+      <div className="d-flex justify-content-center mt-3">
+        <div className="container row">
           {admins.map((admin) => (
             <OurAdminDetail key={admin._id} admin={admin}></OurAdminDetail>
           ))}

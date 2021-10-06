@@ -1,6 +1,6 @@
 import React from "react";
 import sir from "../../../images/sir.jpg";
-// import student from "../../../images/";
+import student from "../../../images/student.jpeg";
 
 const AboutUs = () => {
   return (
@@ -48,7 +48,7 @@ const AboutUs = () => {
               <img
                 style={{ height: "250px", width: "60%" }}
                 className="img-fluid mt-3"
-                src=""
+                src={student}
                 alt=""
               />
               <h2 className="mt-3">Submitted By</h2>

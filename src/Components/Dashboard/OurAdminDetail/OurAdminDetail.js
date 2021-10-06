@@ -8,7 +8,7 @@ const OurAdminDetail = ({ admin }) => {
       <div>
         {admin.image ? (
           <img
-            style={{ height: "250px", width: "90%" }}
+            style={{ height: "250px", width: "70%", borderRadius: "50%" }}
             className="img-fluid mt-3"
             src={`data:image/png;base64,${admin.image.img}`}
             alt=""
@@ -27,7 +27,7 @@ const OurAdminDetail = ({ admin }) => {
       </div>
       <div
         style={{ marginLeft: "20px" }}
-        className="d-flex justify-content-center align-items-center"
+        className="d-flex justify-content-center align-items-center mb-4"
       >
         <div>
           <FontAwesomeIcon
