@@ -60,7 +60,7 @@ const AboutUs = () => {
               </p>
               <p className="fst-italic text-muted">
                 <span style={{ fontSize: "20px", fontWeight: "" }}>
-                  ID: 152-155594
+                  ID: 152-15-5594
                 </span>{" "}
                 <br />
                 <span style={{ fontWeight: "" }}>

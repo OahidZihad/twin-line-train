@@ -1,6 +1,10 @@
 import { useHistory } from "react-router-dom";
+import React, { useContext } from "react";
+import { UserContext } from "../../../App";
 
 const Navbar = () => {
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
   const history = useHistory();
   const handleHome = () => {
     history.push("/home");
@@ -22,6 +26,12 @@ const Navbar = () => {
 
   const handleStations = () => {
     history.push("/stations");
+  };
+
+  const handleSignOut = (e) => {
+    sessionStorage.clear();
+    window.location.reload();
+    history.push("/login");
   };
   return (
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -63,19 +73,36 @@ const Navbar = () => {
                 Home
               </a>
             </li>
-            <li class="nav-item">
-              <a
-                class="nav-link ms-5"
-                onClick={handleLogin}
-                style={{
-                  cursor: "pointer",
-                  fontWeight: "bold",
-                  color: "#800000",
-                }}
-              >
-                Login
-              </a>
-            </li>
+
+            {loggedInUser.email ? (
+              <li class="nav-item">
+                <a
+                  class="nav-link ms-5"
+                  onClick={handleSignOut}
+                  style={{
+                    cursor: "pointer",
+                    fontWeight: "bold",
+                    color: "#800000",
+                  }}
+                >
+                  Logout
+                </a>
+              </li>
+            ) : (
+              <li>
+                <a
+                  class="nav-link ms-5"
+                  onClick={handleLogin}
+                  style={{
+                    cursor: "pointer",
+                    fontWeight: "bold",
+                    color: "#800000",
+                  }}
+                >
+                  Login
+                </a>
+              </li>
+            )}
 
             <li class="nav-item">
               <a

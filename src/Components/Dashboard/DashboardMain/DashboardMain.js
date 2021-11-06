@@ -37,7 +37,7 @@ const DashboardMain = () => {
                 </div>
                 <div className="ms-3 mt-2 align-items-center justify-content-center d-flex">
                   <p style={{ lineHeight: "20px", fontSize: "30px" }}>
-                    Toal Admin
+                    Total Admin
                   </p>
                 </div>
               </div>
@@ -55,7 +55,7 @@ const DashboardMain = () => {
                 }}
               >
                 <div className="align-items-center justify-content-center d-flex">
-                  <h1>0{tickets.length}</h1>
+                  <h1>{tickets.length}</h1>
                 </div>
                 <div className="ms-3 mt-2 align-items-center justify-content-center d-flex">
                   <p style={{ lineHeight: "20px", fontSize: "30px" }}>
